@@ -2,6 +2,8 @@ import sys
 import re
 from collections import Counter
 
+TEN_WORDS = 10
+
 
 def load_data(filepath):
     try:
@@ -20,13 +22,13 @@ def get_clean_list_of_words(text):
 
 
 def get_most_frequent_words(list_of_words):
-    ten_most_frequent_words = Counter(list_of_words).most_common(10)
+    ten_most_frequent_words = Counter(list_of_words).most_common(TEN_WORDS)
     return ten_most_frequent_words
 
 
 def print_most_frequent_words(ten_most_frequent_words):
-    for i in ten_most_frequent_words:
-        print('The word "{0}" occurs {1} times'.format(i[0], i[1]))
+    for frequency_dict in ten_most_frequent_words:
+        print('The word "{0}" occurs {1} times'.format(frequency_dict[0], frequency_dict[1]))
 
 
 if __name__ == '__main__':
